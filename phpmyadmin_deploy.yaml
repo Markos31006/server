@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nombre4
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: nombre4
+  template:
+    metadata:
+      labels:
+        app: nombre4
+    spec:
+      containers:
+      - name: phpmyadmin
+        image: phpmyadmin/phpmyadmin
+        ports:
+        - containerPort: 80
+        env:
+        - name: PMA_HOST
+          value: servicio_mysql
+

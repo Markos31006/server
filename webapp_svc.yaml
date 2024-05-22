@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Service
+metadata:
+    name: nombre1
+spec:
+    type: LoadBalancer
+    selector:
+        app: nombre1
+    ports:
+      - name: tomcat
+        port: 80
+        targetPort: 80
+        nodePort: puerto_webapp
+        

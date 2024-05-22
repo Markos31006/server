@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nombre4
+spec:
+  selector:
+    matchLabels:
+      app: nombre4
+  template:
+    metadata:
+      labels:
+        app: nombre4
+    spec:
+      containers:
+      - image: mysql:8.4
+        name: mysql
+        env:
+        - name: MYSQL_ROOT_PASSWORD
+          value: nombre1
+        - name: MYSQL_DATABASE
+          value: nombre2
+        ports:
+        - containerPort: 3306
+          name: mysql
+        volumeMounts:
+        - name: mysql-persistent-storage
+          mountPath: /var/lib/mysql
